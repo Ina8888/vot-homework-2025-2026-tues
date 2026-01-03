@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>K8s Homework</title>
+</head>
+<body>
+    <h1>My Microservices App</h1>
+    <div id="data">Loading...</div>
+
+    <script>
+        fetch('http://localhost:30100/api') 
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('data').innerText = JSON.stringify(data, null, 2);
+            })
+            .catch(err => {
+                document.getElementById('data').innerText = "Error connecting to backend";
+            });
+    </script>
+</body>
+</html>
